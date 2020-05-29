@@ -1,5 +1,10 @@
 import flask
+import pymongo
+
 from flask import request, jsonify
+from flask import Response
+from pymongo import MongoClient
+
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -42,6 +47,30 @@ def ready_check():
 # A route to return all of the available entries in our catalog.
 @app.route('/api/v1/resources/books/all', methods=['GET'])
 def api_all():
-    return jsonify(books)
+    client = MongoClient()
+    db = client.test
+    books = db.books
+    cur = books.find()
+    result = []
+    for item in cur:
+        if "title" in item:
+          result.append({"title": item["title"], "description": item["description"]})
+
+
+    return jsonify(result)
+
+
+@app.route('/api/v1/resources/add', methods=['POST'])
+def add_book():
+    
+    client = MongoClient()
+    db = client.test
+    books = db.books
+
+    book = request.json
+    result = books.insert_one(book)
+    
+    return result
+
 
 app.run()
