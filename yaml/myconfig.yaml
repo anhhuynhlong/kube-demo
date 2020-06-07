@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  mongo_host: "mongo-service"
+metadata:
+  creationTimestamp: "2020-06-07T21:56:32Z"
+  name: myconfig
+  namespace: default
+  resourceVersion: "2783"
+  selfLink: /api/v1/namespaces/default/configmaps/myconfig
+  uid: 98d6ba24-9f1b-4173-8cdf-6b33af21e37a

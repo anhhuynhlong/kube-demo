@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-06-05T20:57:06Z"
+  labels:
+    app: mongo
+    tier: tier1
+    type: database
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+          f:tier: {}
+          f:type: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":27017,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+          f:tier: {}
+          f:type: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-06-05T20:57:06Z"
+  name: mongo-service
+  namespace: default
+  resourceVersion: "12618"
+  selfLink: /api/v1/namespaces/default/services/mongo-service
+  uid: 450b79ec-e8d8-4888-ac6d-01ab56bafaf1
+spec:
+  clusterIP: 10.233.32.133
+  ports:
+  - port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: mongo
+    tier: tier1
+    type: database
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

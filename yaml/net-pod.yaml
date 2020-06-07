@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: netutils
+  name: netutils
+spec:
+  containers:
+  - image: amouat/network-utils
+    name: netutils
+    command:
+    - "sleep"
+    - "3600"
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mongo
+    type: database
+    tier: tier1
+  name: mongo
+spec:
+  containers:
+  - image: mongo:3.7
+    name: mongo
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

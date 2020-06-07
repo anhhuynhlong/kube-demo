@@ -56,4 +56,4 @@ def add_book():
     
     return jsonify(str(result))
 
-app.run()
+app.run(host='0.0.0.0')

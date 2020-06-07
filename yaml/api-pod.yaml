@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: api-gw
+    type: backend
+  name: api-gw
+spec:
+  containers:
+  - image: quay.io/andyhuynh/kube-demo:1.0
+    name: api-gw
+    resources: {}
+    ports: 
+    - containerPort: 5000
+    livenessProbe:
+      httpGet:
+        path: /health/live
+        port: 5000
+    readinessProbe:
+      httpGet:
+        path: /health/ready
+        port: 5000
+    env:
+      - name: MONGO_HOST
+        valueFrom:
+          configMapKeyRef:
+            name: myconfig
+            key: mongo_host
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
