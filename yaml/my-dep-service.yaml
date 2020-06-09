@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-06-09T20:44:44Z"
+  labels:
+    app: my-dep
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-06-09T20:44:44Z"
+  name: my-dep
+  namespace: default
+  resourceVersion: "24381"
+  selfLink: /api/v1/namespaces/default/services/my-dep
+  uid: f52c258b-d7ad-4928-90ae-5065e149b808
+spec:
+  clusterIP: 10.233.30.0
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: my-dep
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -1,0 +1,24 @@
+---
+kubernetes:
+  core concepts:
+    components:
+    - api-server
+    - scheduler
+    - controller
+    - etcd
+    node
+    pod
+    deployment
+    statefulset
+    service
+
+  app deployment demo
+  Advanced scheduling
+    node selector
+    taint and tolerance
+  Storage (PV, PVC)
+  Helm (package management)
+    install
+    upgrade
+    rollback
+    uninstall
